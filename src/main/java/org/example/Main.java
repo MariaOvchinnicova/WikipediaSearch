@@ -58,9 +58,9 @@ public class Main {
             System.out.println("Введите номер статьи, чтобы открыть ее в браузере:");
             int choice = scanner.nextInt();
 
-            if (choice < 1 || choice > searchResults.size()) {
-                System.out.println("Неверный выбор.");
-                return;
+            while (choice < 1 || choice > searchResults.size()) {
+                System.out.println("Неверный выбор. Допустимые значения от "+1+" до "+searchResults.size());
+                choice = scanner.nextInt();
             }
 
             JsonObject selectedResult = searchResults.get(choice - 1).getAsJsonObject();
